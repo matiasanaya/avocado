@@ -8,6 +8,12 @@
 </head>
 <body>
 
+<% if signed_in? %>
+	Signed in as <%= current_user.name %>
+<% else %>
+	Not Signed in
+<% end %>
+
 <% flash.each do |key, value| %>
 	<div class="alert alert-<%= key %>"><%= value %></div>
 <% end %>
