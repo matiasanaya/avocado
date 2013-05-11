@@ -8,8 +8,9 @@ class EmailShare < ActiveRecord::Base
   validates :card, presence: true
 
   def update
-    self.status = 'Invalid'
-    self.save
+    new_share = EmailShare.new email: self.email
+    new_share.card = self.card
+    new_share.save
   end
 
   private
