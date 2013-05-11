@@ -1,6 +1,7 @@
 class EmailShare < ActiveRecord::Base
   attr_accessible :email
   before_create :set_status_and_token
+  after_create :email_card
 
   belongs_to :card
 
@@ -11,6 +12,10 @@ class EmailShare < ActiveRecord::Base
     new_share = EmailShare.new email: self.email
     new_share.card = self.card
     new_share.save
+  end
+
+  def email_card
+    CardMailer.shared_card(self).deliver
   end
 
   private
