@@ -10,6 +10,7 @@ gem 'sqlite3'
 group :development do
 	gem 'hirb'
 	gem 'pry'
+  gem 'pry-debugger'
 end
 
 # Gems used only for assets and not required

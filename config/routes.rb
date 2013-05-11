@@ -1,4 +1,9 @@
 Avocado::Application.routes.draw do
+  get "email_shares/show"
+
+  get 'update/:token', to: 'email_shares#show'
+  post 'update/:token', to: 'email_shares#update'
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
 

@@ -7,4 +7,13 @@ class Card < ActiveRecord::Base
 
   belongs_to :user
   has_many :simple_properties
+
+  def status
+    status = '{'
+    self.simple_properties.each do |prop|
+      status << " #{prop.k}:#{prop.v},"
+    end
+    status.slice!(-1)
+    status << ' }'
+  end
 end
