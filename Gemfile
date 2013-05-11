@@ -8,6 +8,7 @@ gem 'rails', '3.2.12'
 gem 'sqlite3'
 
 group :development do
+	gem 'hirb'
 	gem 'pry'
 end
 

@@ -11,7 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130510191255) do
+ActiveRecord::Schema.define(:version => 20130511012138) do
+
+  create_table "cards", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "use_case"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "simple_properties", :force => true do |t|
+    t.integer  "card_id"
+    t.string   "k"
+    t.string   "v"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email"

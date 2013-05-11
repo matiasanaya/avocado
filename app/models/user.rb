@@ -10,8 +10,19 @@ class User < ActiveRecord::Base
 
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
+  after_create :create_cards
+
+  has_many :cards
 
   private
+
+  def create_cards
+    ['personal','business'].each do |type|
+      c = Card.new(use_case: type)
+      c.user = self
+      c.save
+    end
+  end
 
   def create_remember_token
     self.remember_token = SecureRandom.urlsafe_base64

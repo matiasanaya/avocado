@@ -1,2 +1,6 @@
-<% provide(:title, 'Sign up') %>
-<h1>Hello <%= @user.name %>!</h1>
+<% provide(:title, @user.name) %>
+<ul>
+	<% @user.cards.last.simple_properties.each do |prop| %>
+		<li><%= "#{prop.k}: #{prop.v}" %></li>
+	<% end %>
+</ul>

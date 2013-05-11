@@ -7,18 +7,28 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div class="container-fluid">
+		<div class="navbar navbar-inverse">
+			<div class="navbar-inner">
+				<%= link_to 'Avocado', root_path, class: 'brand' %>
+				<ul class="nav pull-right">
+				  <% if signed_in? %>
+						<li class="active"><%= link_to current_user.name, root_path %></li>
+						<li><%= link_to 'Log out', signout_path, method: :delete %></li>
+					<% else %>
+						<li class="active"><%= link_to 'Home', root_path %></li>
+						<li><%= link_to 'Log in', signin_path %></li>
+					<% end %>
+				</ul>
+			</div>
+		</div>
 
-<% if signed_in? %>
-	Signed in as <%= current_user.name %>
-<% else %>
-	Not Signed in
-<% end %>
+		<% flash.each do |key, value| %>
+			<div class="alert alert-<%= key %>"><%= value %></div>
+		<% end %>
 
-<% flash.each do |key, value| %>
-	<div class="alert alert-<%= key %>"><%= value %></div>
-<% end %>
+		<%= yield %>
 
-<%= yield %>
-
+	</div>
 </body>
 </html>
