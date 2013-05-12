@@ -4,12 +4,28 @@ require File.expand_path('../application', __FILE__)
 # Initialize the rails application
 Avocado::Application.initialize!
 
+# Sendgrind Config
+# ActionMailer::Base.smtp_settings = {
+#     user_name: SENDGRID_CONFIG['username'],
+#     password: SENDGRID_CONFIG['password'],
+#     user_name: SMTP_CONFIG['usr'],
+#     password: SMTP_CONFIG['pass'],
+#     domain: APP_DOMAIN,
+#     address: 'smtp.sendgrid.net',
+#     port: 587,
+#     authentication: :plain,
+#     enable_starttls_auto: true
+#   }
+
+# GMAIL Config
 ActionMailer::Base.smtp_settings = {
-  user_name: SENDGRID_CONFIG['username'],
-  password: SENDGRID_CONFIG['password'],
-  domain: APP_DOMAIN,
-  address: 'smtp.sendgrid.net',
-  port: 587,
-  authentication: :plain,
-  enable_starttls_auto: true
+  :user_name => SMTP_CONFIG['usr'],
+  :password => SMTP_CONFIG['pass'],
+  :domain => APP_DOMAIN,
+  :address => 'smtp.gmail.com',
+  :port => 587,
+  :authentication => :plain,
+  :enable_starttls_auto => true
 }
+
+ActionMailer::Base.default_url_options[:host] = "localhost:3000"

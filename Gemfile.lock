@@ -136,6 +136,7 @@ GEM
     uglifier (2.1.0)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    vpim (0.695)
 
 PLATFORMS
   ruby
@@ -155,3 +156,4 @@ DEPENDENCIES
   therubyracer
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)
+  vpim
