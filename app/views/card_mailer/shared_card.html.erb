@@ -1,1 +1,7 @@
+Info sent to you:
+
+<% @email_share.card.props.each do |prop| %>
+        <li><%= "#{prop.k}: #{prop.v}" %></li>
+<% end %>
+
 Check for updates => <%= link_to 'Go!', check_share_url(@email_share.token) %>

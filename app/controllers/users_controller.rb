@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    @email_share = EmailShare.new
   end
 
   def new

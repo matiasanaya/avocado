@@ -1,7 +1,6 @@
 class EmailShare < ActiveRecord::Base
-  attr_accessible :email
+  attr_accessible :email, :card_id
   before_create :set_status_and_token
-  after_create :email_card
 
   belongs_to :card
 

@@ -7,20 +7,21 @@ class Card < ActiveRecord::Base
 
   belongs_to :user
   has_many :simple_properties
+  has_many :email_shares
 
   def props
     simple_properties
   end
 
   def display_name
-    display_name = ''
+    display_name = nil
     props.each do |prop|
       if prop.k == 'name'
         display_name = prop.v
         break
       end
     end
-    display_name
+    display_name ||= '#empty'
   end
 
   def status
@@ -33,13 +34,17 @@ class Card < ActiveRecord::Base
   end
 
   def vcard
-    vcard = Vpim::Vcard::Maker.make2 do |maker|
+    Vpim::Vcard::Maker.make2 do |maker|
+      maker.add_name do |name|
+        name.given = display_name
+      end
+      make.add_url check_share_url(@email_share.token)
       props.each do |prop|
         case prop.k
-        when 'name'
-          maker.add_name do |name|
-            name.given = prop.v
-          end
+        # when 'name'
+        #   maker.add_name do |name|
+        #     name.given = prop.v
+        #   end
         when 'email'
           maker.add_email(prop.v) { |e| e.location = 'main' }
         when 'phone_mobile'
