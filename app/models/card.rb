@@ -14,14 +14,9 @@ class Card < ActiveRecord::Base
   end
 
   def display_name
-    display_name = nil
-    props.each do |prop|
-      if prop.k == 'name'
-        display_name = prop.v
-        break
-      end
-    end
-    display_name ||= '#empty'
+    find = props.find_by_k('name')
+    return find.v if find
+    user.name
   end
 
   def status

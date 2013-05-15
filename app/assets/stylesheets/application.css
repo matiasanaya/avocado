@@ -11,3 +11,394 @@
  *= require_self
  *= require_tree .
  */
+
+.navbar {
+  margin-top: 1%;
+}
+
+img {
+  max-width: 100%;
+}
+
+.overflow_hidden {
+  overflow:hidden;
+}
+
+.cover {
+  position: relative;
+  padding-top: 36.87%;
+  overflow:hidden;
+}
+
+.cover > img {
+  position:absolute
+}
+
+#photos {
+  padding-top:20px;
+  padding-bottom:20px;
+}
+
+.photos {
+  position: relative;
+  overflow:hidden;
+}
+
+.photos > img {
+  position:absolute 
+}
+
+body {
+  background: url(<%= asset_path 'GreyBackground.png' %>) repeat;
+  padding-top: 3%;
+  padding-bottom: 4%;
+  padding-left: 3%;
+  padding-right: 3%;
+}
+
+.card {
+  margin-top: 1%;
+  margin-bottom: 1%;
+  *zoom: 1;
+  max-width: 720px; /* Twitter Timeline max-width: 520px; */
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+    -webkit-border-radius: 8px;
+       -moz-border-radius: 8px;
+            border-radius: 8px;
+  box-shadow: 0 5px 10px #888;
+}
+
+.cardrow {
+  background: #fafafa url(<%= asset_path 'background.png' %>) repeat;
+  border: 1px solid #cacaca;
+  border-top-style: none;
+}
+
+/* Relative img will not clip to border
+.cardrow:first-child {
+  border-top: 1px solid #cacaca;
+  -webkit-border-top-left-radius: 8px;
+   -webkit-border-top-right-radius: 8px;
+       -moz-border-top-left-radius: 8px;
+      -moz-border-top-right-radius: 8px;
+        border-top-left-radius: 8px;
+         border-top-right-radius: 8px;
+}
+*/
+
+.cardrow:last-child {
+  -webkit-border-bottom-left-radius: 8px;
+   -webkit-border-bottom-right-radius: 8px;
+       -moz-border-bottom-left-radius: 8px;
+      -moz-border-bottom-right-radius: 8px;
+        border-bottom-left-radius: 8px;
+         border-bottom-right-radius: 8px;
+         overflow:hidden;
+}
+
+
+.rounded-top {
+    -webkit-border-top-left-radius: 8px;
+   -webkit-border-top-right-radius: 8px;
+       -moz-border-top-left-radius: 8px;
+      -moz-border-top-right-radius: 8px;
+        border-top-left-radius: 8px;
+         border-top-right-radius: 8px;
+}
+
+.rounded-bottom {
+    -webkit-border-bottom-left-radius: 8px;
+   -webkit-border-bottom-right-radius: 8px;
+       -moz-border-bottom-left-radius: 8px;
+      -moz-border-bottom-right-radius: 8px;
+        border-bottom-left-radius: 8px;
+         border-bottom-right-radius: 8px;
+}
+
+.little-height {
+  height: 12px;
+}
+
+.banner-hack {
+  padding-bottom: 5px;
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+#banner {
+  color: whitesmoke;
+  background: #363636 url();
+  /*margin-bottom: 50px;*/
+  box-shadow: 0px 3px 2px #888, 10px 0px 0px #363636, 10px 3px 2px #888, -10px 0px 0px #363636, -10px 3px 2px #888;
+}
+
+.double-border {
+  border-top: 1px solid #cacaca;
+  border-bottom: 1px solid #cacaca;
+}
+
+.row-fluid {
+  padding-top: 2%;
+  padding-bottom: 1%;
+}
+
+.no-padding{
+  padding: 0;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.no-box {
+  padding: 0;
+  margin: 0;
+  min-height: 0px;
+}
+
+.no-border-bottom {
+  border-bottom-style: none;
+}
+
+.relative-pos {
+  position: relative;
+}
+
+.line-row {
+  height: 1px;
+}
+
+.right-row {
+  background: white;
+}
+
+.left-row {
+  background: #08c;
+}
+
+.hr {
+    margin: 0;
+    border: 0;
+}
+
+.right-line {
+  border-bottom: 1px solid #08c;
+}
+
+.left-line {
+  border-bottom: 1px solid white;
+}
+
+.link-off {
+  background: lightgrey;
+}
+
+#phone {
+  width: 50%;
+}
+
+#mail {
+  width: 50%;
+  margin-left: 0;
+  border-left: 1px solid;
+}
+
+.min-height {
+  min-height: 50px;
+}
+
+.side-icon {
+  color: #08c;
+}
+
+.action-row {
+  padding-top: 0;
+  padding-bottom: 0;
+  background: #08c;
+  color: whitesmoke;
+}
+
+.action-anchor {
+  color: whitesmoke;
+}
+
+.action-anchor:hover {
+  color: whitesmoke;
+}
+
+.action1-sub-row {
+  /*padding-top: 0;*/
+  /*padding-bottom: 0;*/
+  background: #08c;
+  color: whitesmoke;
+}
+
+.action2-sub-row {
+  /*padding-top: 0;*/
+  /*padding-bottom: 0;*/
+  background: #08c;
+  color: whitesmoke;
+}
+
+.break-word {
+  word-wrap: break-word;
+}
+
+.body-sub-row {
+  padding-top: 2%;
+  padding-bottom: 0;
+  background: #08c;
+  color: whitesmoke;
+}
+
+.body-sub-row a {
+  color: white;
+}
+
+.body-sub-row a:hover {
+  color: white;
+}
+
+.arrow-center {
+  margin-left: 81.1%;
+}
+
+.arrow-center-2-1 {
+  margin-left: 26.3%; 
+}
+
+.arrow-center-2-2 {
+  margin-left: 68%; 
+}
+
+.arrow-up {
+  width: 0; 
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 20px solid #08c;
+}
+
+/*#opacity-banner {
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  bottom: 0%;
+  margin: 0;
+  height: 5em;
+  min-height: 10%;
+  max-height: 40%;
+  z-index: 0;
+}*/
+
+#profile_photo_span {
+  position: absolute;
+  bottom: 7%;
+  width: 25%;
+  z-index: 1;
+}
+
+#profile_photo {
+  width: 70%;
+}
+
+#profile_name {
+  position: absolute;
+  bottom: 1%;
+  color: whitesmoke;
+  z-index: 1;
+}
+
+#cover_photo {
+  background: url(../img/cover_molly_motel.png) no-repeat center center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.main-icon {
+  padding-top: 10px;
+  padding-bottom: 0px;
+  font-size: 50px;
+  color: whitesmoke;
+  text-decoration: none;
+  margin: 2.5%;
+}
+
+.social-icon {
+  font-size: 3.5rem;
+}
+
+.social-on {
+  color: #08c;
+}
+
+.social-off {
+  color: lightgrey;
+}
+
+.some-padding {
+  padding-top: 12px;
+}
+
+.icon_img {
+  max-width: 75%;
+  min-width: 60px;
+}
+
+/*#actions {
+  border-top-style: none;
+}*/
+
+.action_img {
+  padding: 5%;
+  width: 55px;
+}
+
+#googleMap {
+  width: 100%;
+  border: none;
+  /* height: 25em;*/
+}
+
+.align-center {
+  text-align: center;
+}
+
+.fluid-twitter {
+  width: 100%
+}
+
+.top-border-dashed {
+  border-top: 1px dashed #cacaca;
+}
+
+.display-none {
+  display: none;
+}
+
+.map-hack-padding {
+  padding: 1.5%; /* En Chrome para Nexus aparece el mapa en vez del borde sino... no se que onda */
+  background-color: #08c;
+}
+
+/* Overides Bootstrap Settings */
+
+a:hover {
+  color: #08c;
+  text-decoration: inherit;
+}
+
+.accordion {
+  margin-bottom: 0px;
+}
+
+.accordion-group {
+  margin-bottom: 0px;
+  border-style: none;
+  -webkit-border-radius: 0px;
+     -moz-border-radius: 0px;
+          border-radius: 0px;
+}
