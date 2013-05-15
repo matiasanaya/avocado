@@ -2,10 +2,9 @@
 <div class="row-fluid">
   <% @user.cards.each do |card| %>    
     <div class="span6">
-      <%= link_to 'View Shares', cards_path(card) %>
       <div class="card">
         <%= render 'cards/banner', use_case: card.use_case.capitalize %>
-        <%= render 'email_shares/form', card: card %>
+        <%= render 'email_shares/actions', card: card %>
         <%= render 'cards/simple_property', prop: SimpleProperty.new(k:'name', v: card.display_name) %>
         <% card.simple_properties.each do |prop| %>
           <%= render 'cards/simple_property', prop: prop  unless prop.k == 'name' %>
