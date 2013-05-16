@@ -1,6 +1,6 @@
-<h1>Cards#show</h1>
+<h1><%= @card.use_case.capitalize %></h1>
 <ul>
   <% @card.email_shares.each do |share| %>
-    <li><%= share.email %></li>
+    <li>shared with: <strong><%= share.email %></strong>, last checked: <strong><%= share.created_at %></strong></li>
   <% end %>
 </ul>
