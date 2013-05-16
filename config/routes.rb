@@ -15,7 +15,7 @@ Avocado::Application.routes.draw do
   match '/signup',  to: 'users#new'
 
   # get ':name', to: 'users#show'
-  root to: 'users#show'
+  root to: 'cards#root'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

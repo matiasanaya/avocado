@@ -1,6 +1,7 @@
 <div class="row-fluid" style="margin-bottom:1%;">
+  <% @email_share = EmailShare.new %>
   <%= form_for(@email_share) do |f| %>
-    <%= render 'shared/error_messages', subject: @user %>
+    <%= render 'shared/error_messages', subject: @email_share %>
     <%= f.text_field :email, placeholder: 'Email address', :style => 'width:70%;margin-top:10px;height:35px;' %>
     <%= f.hidden_field :card_id, value: card.id %>
     <%= f.submit "share", :class => "btn", :style => 'width:25%;height:45px;' %>

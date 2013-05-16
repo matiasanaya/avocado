@@ -1,4 +1,14 @@
-<h1><%= @card.use_case.capitalize %></h1>
+<div class="row-fluid">
+  <div class="card">
+    <%= render 'cards/banner', use_case: @card.use_case.capitalize %>
+    <%= render 'email_shares/actions', card: @card %>
+    <%= render 'cards/simple_property', prop: SimpleProperty.new(k:'name', v: @card.display_name) %>
+    <% @card.props.each do |prop| %>
+      <%= render 'cards/simple_property', prop: prop  unless prop.k == 'name' %>
+    <% end %>
+  </div>
+</div>
+
 <ul>
   <% @card.email_shares.each do |share| %>
     <li>shared with: <strong><%= share.email %></strong>, last checked: <strong><%= share.created_at %></strong></li>
