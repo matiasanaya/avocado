@@ -62,15 +62,17 @@
 
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="span3 hidden-phone">
-          <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <li class="nav-header">Cards</li>
-              <li><%= link_to 'Business', "/path1"  %></li>
-              <li><%= link_to 'Personal', "/path2"  %></li>
-            </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
+        <% if signed_in? %>
+          <div class="span3 hidden-phone">
+            <div class="well sidebar-nav">
+              <ul class="nav nav-list">
+                <li class="nav-header">Cards</li>
+                <li><%= link_to 'Business', cards_path(current_user.cards.find_by_use_case('business')) %></li>
+                <li><%= link_to 'Personal', cards_path(current_user.cards.find_by_use_case('personal')) %></li>
+              </ul>
+            </div><!--/.well -->
+          </div><!--/span-->
+        <% end %>
         <div class="span9">
           <%= bootstrap_flash %>
           <%= yield %>

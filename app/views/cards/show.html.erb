@@ -9,8 +9,23 @@
   </div>
 </div>
 
-<ul>
+<br \>
+<br \>
+<br \>
+<table>
+  <h3>Shares</h3>
+  <tr>
+    <th>email</th>
+    <th>status</th>
+    <th>pull date</th>
+  </tr>
   <% @card.email_shares.each do |share| %>
-    <li>shared with: <strong><%= share.email %></strong>, last checked: <strong><%= share.created_at %></strong></li>
+    <tr>
+      <td><%= share.email %></td>
+      <td>?</td>
+      <td><%= share.created_at %></td>
+    </tr>
   <% end %>
-</ul>
+</table>
+<br \>
+<br \>
