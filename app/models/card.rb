@@ -44,6 +44,11 @@ class Card < ActiveRecord::Base
       # Non-iPhone update token
       maker.add_url Rails.application.routes.url_helpers.check_share_url(email_share.token, :host => 'localhost:3000')
       
+      # Not supported on Android
+      # maker.add_photo do |photo|
+      #   photo.link = 'http://gravatar.com/avatar/b8d1c11580078fa050f97503470ef06f'
+      # end
+      
       props.each do |prop|
         case prop.k
         when 'email'

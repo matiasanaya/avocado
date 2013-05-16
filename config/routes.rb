@@ -5,6 +5,10 @@ Avocado::Application.routes.draw do
   post 'update/:token', to: 'email_shares#update', as: :update_share
 
   get 'cards/:id', to: 'cards#show', as: :cards 
+  
+  get 'properties/new/:card_id', to: 'simple_properties#new', as: :props_new
+  
+  resources :simple_properties, only: [:create]
   resources :email_shares
   resources :users
   resources :sessions, only: [:new, :create, :destroy]

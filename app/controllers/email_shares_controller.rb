@@ -22,10 +22,10 @@ class EmailSharesController < ApplicationController
     if @email_share.save
       @email_share.email_card
       flash[:success] = "Successfully shared with #{@email_share.email}!"
-      redirect_to :root
+      redirect_to cards_path(@email_share.card)
     else
       flash[:alert] = "Failed to share with #{@email_share.email}!"
-      redirect_to :root
+      redirect_to cards_path(@email_share.card)
     end
   end
 

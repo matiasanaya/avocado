@@ -2,10 +2,13 @@
   <div class="row-fluid">
     <div id="actions_accordion">
       <a data-toggle="collapse" data-parent="#actions_accordion" href="#email_form<%= card.id %>">
-        <h1 class="social-on" style="float:left;margin-left:20%;"><i class="icon-<%= 'share-alt' %>"></i></h1>
+        <h1 class="social-on" style="float:left;margin-left:10%;"><i class="icon-<%= 'share-alt' %>"></i></h1>
       </a>
       <a href="<%= cards_path(card) %>">
-        <h1 class="social-on" style="float:left;margin-left:45%;"><i class="icon-<%= 'bookmark' %>"></i></h1>
+        <h1 class="social-on" style="float:left;margin-left:30%;"><i class="icon-<%= 'bookmark' %>"></i></h1>
+      </a>
+      <a href="<%= props_new_path(card.id) %>">
+        <h1 class="social-on" style="float:left;margin-left:30%;"><i class="icon-<%= 'plus' %>"></i></h1>
       </a>
     </div>
   </div>

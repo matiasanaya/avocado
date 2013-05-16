@@ -15,16 +15,18 @@ class User < ActiveRecord::Base
   has_many :cards
 
   def card_with_use_case use_case
-    current_user.cards.find_by_use_case use_case
+    cards.find_by_use_case use_case
   end
 
   private
 
   def create_cards
     ['personal','business'].each do |type|
-      c = Card.new(use_case: type)
-      c.user = self
-      c.save
+      if !card_with_use_case(type)
+        c = Card.new(use_case: type)
+        c.user = self
+        c.save
+      end
     end
   end
 

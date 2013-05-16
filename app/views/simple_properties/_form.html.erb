@@ -1,0 +1,12 @@
+<%= form_for(@prop) do |f| %>
+  <%= render 'shared/error_messages', subject: @prop %>
+  <%= f.label :key %>
+  <%= f.text_field :k %>
+
+  <%= f.label :value %>
+  <%= f.text_field :v %>
+
+  <%= f.hidden_field :card_id, value: @prop.card_id %>
+
+  <%= f.submit "Add Property", class: "btn btn-large btn-primary" %>
+<% end %>
