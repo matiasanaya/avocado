@@ -1,3 +1,4 @@
+*.vcf
 *.rbc
 *.sassc
 .sass-cache

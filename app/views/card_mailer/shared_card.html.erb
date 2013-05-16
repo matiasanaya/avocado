@@ -1,7 +1,19 @@
-Info sent to you:
-
-<% @email_share.card.props.each do |prop| %>
-        <li><%= "#{prop.k}: #{prop.v}" %></li>
-<% end %>
-
-Check for updates => <%= link_to 'Go!', check_share_url(@email_share.token) %>
+<br \>
+<p>You can reach me at any of the following:</p>
+<br \>
+<table style="margin-left:10px;">
+  <h3><%= @email_share.card.display_name %></h3>
+  <tr>
+    <th>type</th>
+    <th>info</th>
+  </tr>
+  <% @email_share.card.props.each do |prop| %>
+    <% next if prop.k == 'name' %>
+    <tr>
+      <td><%= prop.human_key %></td>
+      <td><strong><%= prop.v %></strong></td>
+    </tr>
+  <% end %>
+</table>
+<br \>
+<p>Just in case, you can check for updates at any time <%= link_to 'Here', check_share_url(@email_share.token) %></p>

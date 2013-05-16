@@ -3,8 +3,8 @@ class CardMailer < ActionMailer::Base
 
   def shared_card(email_share)
     @email_share = email_share
-    attachment = File.open("#{email_share.card.display_name}.vcf", 'w') {|f| f.write(email_share.card.vcard) }
+    File.open("#{email_share.card.display_name}.vcf", 'w') {|f| f.write(email_share.card.vcard(email_share)) }
     attachments["#{email_share.card.display_name}.vcf"] = File.read("#{email_share.card.display_name}.vcf")
-    mail to: @email_share.email, subject: 'Awesome Stuff for you'
+    mail to: @email_share.email, subject: "Here's my contact info"
   end
 end

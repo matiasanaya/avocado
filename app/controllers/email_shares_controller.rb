@@ -20,7 +20,7 @@ class EmailSharesController < ApplicationController
   def create
     @email_share = EmailShare.new(params[:email_share])
     if @email_share.save
-      # @email_share.email_card
+      @email_share.email_card
       flash[:success] = "Successfully shared with #{@email_share.email}!"
       redirect_to :root
     else

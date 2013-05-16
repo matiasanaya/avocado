@@ -28,18 +28,24 @@ class Card < ActiveRecord::Base
     status << ' }'
   end
 
-  def vcard
+  def vcard email_share
     Vpim::Vcard::Maker.make2 do |maker|
+      n = 0
       maker.add_name do |name|
         name.given = display_name
       end
-      make.add_url check_share_url(@email_share.token)
+      
+      # iPhone update token
+      # item2.URL;type=pref:www.facebook.com
+      # item2.X-ABLabel:update me!
+      # maker.add_my_own "item#{n+=1}.URL;type=pref:#{Rails.application.routes.url_helpers.check_share_url(email_share.token, :host => 'localhost:3000')}"
+      # maker.add_my_own "item#{n}.X-ABLabel:update me!"
+
+      # Non-iPhone update token
+      maker.add_url Rails.application.routes.url_helpers.check_share_url(email_share.token, :host => 'localhost:3000')
+      
       props.each do |prop|
         case prop.k
-        # when 'name'
-        #   maker.add_name do |name|
-        #     name.given = prop.v
-        #   end
         when 'email'
           maker.add_email(prop.v) { |e| e.location = 'main' }
         when 'phone_mobile'
@@ -49,7 +55,6 @@ class Card < ActiveRecord::Base
         end
       end
     end
-    # puts vcard
   end
 
   # maker.add_name do |name|
