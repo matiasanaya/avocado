@@ -9,6 +9,10 @@ class Card < ActiveRecord::Base
   has_many :simple_properties
   has_many :email_shares
 
+  def belongs_to? some_user
+    return true if some_user == user
+  end
+
   def props
     simple_properties
   end

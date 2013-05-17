@@ -36,7 +36,7 @@
   </head>
   <body>
 
-    <div class="navbar navbar-fluid-top navbar-inverse">
+    <div class="navbar navbar-fluid-top">
       <div class="navbar-inner">
         <div class="container-fluid">
           <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
@@ -63,12 +63,12 @@
     <div class="container-fluid">
       <div class="row-fluid">
         <% if signed_in? %>
-          <div class="span3 hidden-phone">
-            <div class="well sidebar-nav">
+          <div class="span3">
+            <div class="well sidebar-nav" style="background-color:#1ABC9C;">
               <ul class="nav nav-list">
-                <li class="nav-header">Cards</li>
-                <li><%= link_to 'Business', cards_path(current_user.cards.find_by_use_case('business')) %></li>
-                <li><%= link_to 'Personal', cards_path(current_user.cards.find_by_use_case('personal')) %></li>
+                <li class="nav-header" style="color:white;">Cards</li>
+                <li><%= link_to 'Business', cards_path(current_user.cards.find_by_use_case('business')), style: 'color:white;' %></li>
+                <li><%= link_to 'Personal', cards_path(current_user.cards.find_by_use_case('personal')), style: 'color:white;' %></li>
               </ul>
             </div><!--/.well -->
           </div><!--/span-->
@@ -81,7 +81,7 @@
       </div><!--/row-->
 
       <footer>
-        <p>&copy; Company 2013</p>
+        <!-- <p>&copy; Company 2013</p> -->
       </footer>
 
     </div> <!-- /container -->

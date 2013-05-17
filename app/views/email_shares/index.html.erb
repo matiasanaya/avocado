@@ -4,12 +4,14 @@
     <th>email</th>
     <th>status</th>
     <th>pull date</th>
+    <th>User</th>
   </tr>
   <% @email_shares.each do |share| %>
     <tr>
       <td><%= share.email %></td>
       <td>?</td>
       <td><%= share.created_at %></td>
+      <td><%= share.card.user.email %></td>
     </tr>
   <% end %>
 </table>
