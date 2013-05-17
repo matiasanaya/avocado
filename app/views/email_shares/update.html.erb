@@ -1,2 +1,6 @@
-<h1>EmailShares#show</h1>
-<p>Perfect! Check your email for the new info</p>
+<% options = { icon: 'ok', status: 'up-to date', bg_color: '#2ECC71' } %>
+
+<div class="hero-unit" style="background-color:<%= options[:bg_color] %>;color:white;">
+  <h1>Done <i class="icon-<%= 'envelope' %>"></i></h1>
+  <h4 style="color:#fcfcfc">We've sent the updated card to your email</h4>
+</div>
