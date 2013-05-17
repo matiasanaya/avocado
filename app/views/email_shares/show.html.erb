@@ -1,5 +1,16 @@
-<h1>EmailShares#show</h1>
-<p>The details on this card are <%= @status %></p>
-<% if @status != 'perfect' %>
-  <%= link_to 'Update', update_share_path(@email_share.token), method: :post %>
-<% end %>
+<% 
+  case @status
+  when 'perfect'
+    options = { icon: 'ok', status: 'up-to date', bg_color: '#2ECC71' }
+  when 'outdated'
+    options = { icon: 'remove', status: 'outdated', bg_color: '#E74C3C' }
+  end
+%>
+
+<div class="hero-unit" style="background-color:<%= options[:bg_color] %>;color:white;">
+  <h1>Status <i class="icon-<%= options[:icon] %>"></i></h1>
+  <h4 style="color:#fcfcfc">The details on this card are <%= options[:status] %></h4>
+  <% if @status != 'perfect' %>
+    <%= link_to raw('<h3>Get Updates</h3>'), update_share_path(@email_share.token), method: :post, :class => 'btn btn-danger btn-block', style: 'color:white;margin-top:50px;' %>
+  <% end %>
+</div>

@@ -51,8 +51,8 @@
 			          <li class=""><%= link_to current_user.name, root_path %></li>
 			          <li><%= link_to 'Log out', signout_path, method: :delete %></li>
 			        <% else %>
-			          <li class="active"><%= link_to 'Home', root_path %></li>
 			          <li><%= link_to 'Log in', signin_path %></li>
+                <li><%= link_to 'Sign up', signup_path %></li>
 			        <% end %>
             </ul>
           </div><!--/.nav-collapse -->
@@ -73,7 +73,8 @@
             </div><!--/.well -->
           </div><!--/span-->
         <% end %>
-        <div class="span9">
+        <%= raw('<div class="span9">') if signed_in? %>
+        <%= raw('<div class="span10 offset1">') if !signed_in? %>
           <%= bootstrap_flash %>
           <%= yield %>
         </div>
