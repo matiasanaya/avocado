@@ -1,4 +1,6 @@
 class EmailSharesController < ApplicationController  
+  skip_before_filter :require_login, :only => [:show, :update]
+
   def index
     @email_shares = EmailShare.all
   end
@@ -31,7 +33,8 @@ class EmailSharesController < ApplicationController
 
   def update
     email_share = EmailShare.find_by_token params[:token]
-    email_share.update if email_share
+    new_share = email_share.update if email_share
+    new_share.email_card
   end
 
   def destroy

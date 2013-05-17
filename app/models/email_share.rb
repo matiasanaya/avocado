@@ -12,6 +12,7 @@ class EmailShare < ActiveRecord::Base
     new_share = EmailShare.new email: self.email
     new_share.card = self.card
     new_share.save
+    new_share
   end
 
   def email_card

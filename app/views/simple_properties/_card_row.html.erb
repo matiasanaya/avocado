@@ -1,0 +1,8 @@
+<div class="cardrow" style="padding-left:7%;padding-right:5%;">
+  <div class="row-fluid">
+    <div class="align-center side-icon">
+      <h1 class="social-off" style="float:left;"><i class="icon-<%= prop.icon %>"></i></h1>
+    </div>
+    <h3 class="lead break-word" style="margin-left:20%;margin-top:17px;"><%= prop.v %><%= link_to  raw('<i class="icon-minus-sign delete" style="margin-left:10%;color:red"></i>'), simple_property_path(prop.id), :confirm => "are you sure?", :method => :delete unless !prop.id %></h3>
+  </div>
+</div>

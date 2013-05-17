@@ -12,4 +12,9 @@ class SimplePropertiesController < ApplicationController
       render 'new'
     end
   end
+
+  def destroy
+    @prop = SimpleProperty.find(params[:id]).destroy
+    redirect_to cards_path(@prop.card)
+  end
 end

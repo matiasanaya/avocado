@@ -2,30 +2,9 @@
   <div class="card">
     <%= render 'cards/banner', use_case: @card.use_case.capitalize %>
     <%= render 'email_shares/actions', card: @card %>
-    <%= render 'cards/simple_property', prop: SimpleProperty.new(k:'name', v: @card.display_name) %>
+    <%= render 'simple_properties/card_row', prop: SimpleProperty.new(k:'name', v: @card.display_name) %>
     <% @card.props.each do |prop| %>
-      <%= render 'cards/simple_property', prop: prop  unless prop.k == 'name' %>
+      <%= render 'simple_properties/card_row', prop: prop  unless prop.k == 'name' %>
     <% end %>
   </div>
 </div>
-
-<br \>
-<br \>
-<br \>
-<table>
-  <h3>Shares</h3>
-  <tr>
-    <th>email</th>
-    <th>status</th>
-    <th>pull date</th>
-  </tr>
-  <% @card.email_shares.each do |share| %>
-    <tr>
-      <td><%= share.email %></td>
-      <td>?</td>
-      <td><%= share.created_at %></td>
-    </tr>
-  <% end %>
-</table>
-<br \>
-<br \>

@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :name_into_id, only: [:show]
-  before_filter :signed_in_user, only: [:show]
+  skip_before_filter :require_login, :only => [:new, :create]
   before_filter :correct_user,   only: [:show]
 
   def show
@@ -23,21 +22,8 @@ class UsersController < ApplicationController
 	end
 
   private
-
-    def name_into_id
-      temp_user = User.find_by_name(params[:name]) if params[:name]
-      params[:id] ||= temp_user.id if temp_user
-    end
-
-    def signed_in_user
-      unless signed_in?
-        store_location
-        redirect_to signin_url, notice: "Please sign in."
-      end
-    end
-
     def correct_user
       # @user = User.find(params[:id])
-      redirect_to(signin_path) unless current_user
+      # redirect_to(signin_path) unless current_user
     end
 end
