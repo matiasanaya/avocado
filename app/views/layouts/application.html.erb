@@ -48,7 +48,7 @@
           <div class="container-fluid nav-collapse">
             <ul class="nav pull-right">
               <% if signed_in? %>
-			          <li class=""><%= link_to current_user.name, root_path %></li>
+			          <li><%= link_to current_user.name, '#' %></li>
 			          <li><%= link_to 'Log out', signout_path, method: :delete %></li>
 			        <% else %>
 			          <li><%= link_to 'Log in', signin_path %></li>

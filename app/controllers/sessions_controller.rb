@@ -2,7 +2,8 @@ class SessionsController < ApplicationController
 	skip_before_filter :require_login, :only => [:new, :create]
 
   def new
- 	end
+    redirect_to :root if current_user
+  end
 
   def create
   	user = User.find_by_email(params[:session][:email].downcase)

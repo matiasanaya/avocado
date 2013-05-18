@@ -1,4 +1,9 @@
 <% provide(:title, 'New Property') %>
-<h1>New Property for your <%= @prop.card.use_case %> card</h1>
-
-<%= render 'form' %>
+<div class="row">
+  <div class="span6 offset3">
+    <div class="hero-unit" style="background-color:#1ABC9C;color:white;">
+      <h3>Add to your <%= @prop.card.use_case %> card</h3>
+      <%= render 'form' %>
+    </div>
+  </div>
+</div>
