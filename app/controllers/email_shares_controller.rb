@@ -3,7 +3,12 @@ class EmailSharesController < ApplicationController
 
   def index
     @email_shares = []
-    current_user.cards.each { |card| @email_shares << card.email_shares }
+    if params[:use_case]
+      cards = [current_user.card_with_use_case(params[:use_case])]
+    else
+      cards = current_user.cards
+    end
+    cards.each { |card| @email_shares << card.email_shares }
     @email_shares.flatten!
   end
 
