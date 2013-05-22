@@ -34,7 +34,7 @@ class Card < ActiveRecord::Base
 
   def vcard email_share
     Vpim::Vcard::Maker.make2 do |maker|
-      n = 0
+      # n = 0
       maker.add_name do |name|
         name.given = display_name
       end
@@ -46,7 +46,9 @@ class Card < ActiveRecord::Base
       # maker.add_my_own "item#{n}.X-ABLabel:update me!"
 
       # Non-iPhone update token
-      maker.add_url Rails.application.routes.url_helpers.check_share_url(email_share.token, :host => ENV['APP_HOST'])
+      url = Rails.application.routes.url_helpers.check_share_url(email_share.token, :host => ENV['APP_HOST'])
+      url = url[7..-1] if url[0..6] == 'http://'
+      maker.add_url url
       
       # Not supported on Android
       # maker.add_photo do |photo|
