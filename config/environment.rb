@@ -28,7 +28,7 @@ ActionMailer::Base.smtp_settings = {
   :enable_starttls_auto => true
 }
 
-ENV['APP_HOST'] ||= 'localhost:3000'
+ENV['APP_HOST'] = 'localhost:3000' if Rails.env.development?
 
 ActionMailer::Base.default_url_options[:host] = ENV['APP_HOST']
 require 'development_mail_interceptor'
