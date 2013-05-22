@@ -19,9 +19,9 @@ Avocado::Application.initialize!
 
 # GMAIL Config
 ActionMailer::Base.smtp_settings = {
-  :user_name => SMTP_CONFIG['usr'],
-  :password => SMTP_CONFIG['pass'],
-  :domain => APP_DOMAIN,
+  :user_name => ENV['SMTP_CONFIG_usr'],
+  :password => ENV['SMTP_CONFIG_pass'],
+  :domain => ENV['APP_DOMAIN'],
   :address => 'smtp.gmail.com',
   :port => 587,
   :authentication => :plain,
@@ -32,4 +32,4 @@ ENV['APP_HOST'] ||= 'localhost:3000'
 
 ActionMailer::Base.default_url_options[:host] = ENV['APP_HOST']
 require 'development_mail_interceptor'
-ActionMailer::Base.register_interceptor(DevelopmentMailInterceptor) if Rails.env.development?
+ActionMailer::Base.register_interceptor(DevelopmentMailInterceptor) #if Rails.env.development?
