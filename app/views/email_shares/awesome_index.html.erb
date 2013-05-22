@@ -1,0 +1,21 @@
+<table>
+  <h3>Shares</h3>
+  <tr>
+    <th>email</th>
+    <th>up-to date?</th>
+    <th>view card</th>
+    <th>last time they pulled?</th>
+    <th>update</th>
+    <th>cancel</th>
+  </tr>
+  <% @last_shares.each do |share| %>
+    <tr>
+      <td><%= share.email %></td>
+      <td><%= share.status? %></td>
+      <td><%= '?' %></td>
+      <td><%= '?' %></td>
+      <td><%= 'send_them_update_card' %></td>
+      <td><%= 'cancel' %></td>
+    </tr>
+  <% end %>
+</table>

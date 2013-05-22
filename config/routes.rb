@@ -9,6 +9,7 @@ Avocado::Application.routes.draw do
   get 'properties/new/:card_id', to: 'simple_properties#new', as: :props_new
   
   resources :simple_properties, only: [:create, :destroy, :edit]
+  get 'awesome_shares/', to: 'email_shares#awesome_index', as: :awesome_shares
   resources :email_shares
   resources :users
   resources :sessions, only: [:new, :create, :destroy]

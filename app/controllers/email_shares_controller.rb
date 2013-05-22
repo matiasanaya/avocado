@@ -12,6 +12,17 @@ class EmailSharesController < ApplicationController
     @email_shares.flatten!
   end
 
+  def awesome_index
+    card = current_user.card_with_use_case(params[:use_case])
+    @last_shares = []
+    crawled_emails = []
+    email_shares = EmailShare.where card_id: card
+    email_shares.each do |share|
+      @last_shares << EmailShare.where(card_id: card.id).last if !crawled_emails.include?(share.email)
+      crawled_emails << share.email
+    end
+  end
+
   def show
   	@email_share = EmailShare.find_by_token(params[:token])
     if @email_share

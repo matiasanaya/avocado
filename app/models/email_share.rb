@@ -8,6 +8,15 @@ class EmailShare < ActiveRecord::Base
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
   validates :card, presence: true
 
+  def status?
+    case status
+    when card.status
+      return 'perfect'
+    else
+      return 'outdated'
+    end
+  end
+
   def update
     new_share = EmailShare.new email: self.email
     new_share.card = self.card
