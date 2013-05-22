@@ -46,7 +46,7 @@ class Card < ActiveRecord::Base
       # maker.add_my_own "item#{n}.X-ABLabel:update me!"
 
       # Non-iPhone update token
-      maker.add_url Rails.application.routes.url_helpers.check_share_url(email_share.token, :host => 'localhost:3000')
+      maker.add_url Rails.application.routes.url_helpers.check_share_url(email_share.token, :host => ENV['APP_HOST'])
       
       # Not supported on Android
       # maker.add_photo do |photo|
