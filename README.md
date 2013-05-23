@@ -33,3 +33,4 @@ APP_DOMAIN = ?
 SMTP_CONFIG_usr = user for the smtp server (gmail)
 SMTP_CONFIG_pass = pass for the smtp server (gmail)
 APP_HOST = host for ActionMailer
+MAIL_INTERCEPTOR = 'on' or 'off'
