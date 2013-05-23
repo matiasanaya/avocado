@@ -30,7 +30,7 @@ ActionMailer::Base.smtp_settings = {
 
 if Rails.env.development?
   ENV['APP_HOST'] = 'localhost:3000'
-  ENV['MAIL_INTERCEPTOR'] == 'on'
+  ENV['MAIL_INTERCEPTOR'] = 'on'
 end
 
 ActionMailer::Base.default_url_options[:host] = ENV['APP_HOST']
